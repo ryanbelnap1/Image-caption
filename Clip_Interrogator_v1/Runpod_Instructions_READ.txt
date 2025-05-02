@@ -1,0 +1,40 @@
+
+Please register for RunPod at: https://runpod.io?ref=1aka98lq
+
+Select a GPU with a minimum of 24 GB VRAM, such as the RTX 3090.
+
+Choose a RunPod template:
+
+RunPod PyTorch 2.1
+runpod/pytorch
+:2.1.0-py3.10-cuda11.8.0-devel-ubuntu22.04
+
+Edit the pod configuration:
+Set the volume disk size to 50 GB or your preferred size.
+
+Add HTTP port 7861 to the exposed ports list to enable proxy connection.
+By default, it will start with the --share option for Gradio sharing.
+
+Upload all files to the workspace folder.
+
+To install, run the following commands:
+
+
+export HF_HOME="/workspace"
+chmod +x Runpod_Install.sh
+./Runpod_Install.sh
+
+
+To use after installation:
+
+Open a new terminal and run the following code each time you start:
+
+Run the following commands CLIP Interrogator APP 
+
+cd /workspace
+export HF_HOME="/workspace"
+export PYTHONWARNINGS="ignore"
+export CUDA_VISIBLE_DEVICES=0
+source venv/bin/activate
+python Clip_Interrogator.py --share 
+

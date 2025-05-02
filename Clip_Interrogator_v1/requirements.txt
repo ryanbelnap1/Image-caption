@@ -1,0 +1,10 @@
+--extra-index-url https://download.pytorch.org/whl/cu124
+torch
+open_clip_torch
+xformers
+transformers
+bitsandbytes
+accelerate
+clip-interrogator==0.6.0
+gradio
+numpy==1.26.4

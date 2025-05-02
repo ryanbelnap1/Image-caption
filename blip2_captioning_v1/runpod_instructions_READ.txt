@@ -1,0 +1,60 @@
+select runpod template
+
+RunPod Pytorch 2.1
+runpod/pytorch
+:2.1.0-py3.10-cuda11.8.0-devel-ubuntu22.04
+
+edit pod
+make volume disk 150 GB if you want to test and use all 3 Blip 2 models
+Otherwise set to like 50 GB
+
+getting a 48 GB gpu will let you run everything at best quality e.g. A6000
+
+add expose HTTP ports 7861. the apps will start default at 7860 port so we will be able to connect via 7861
+
+upload all files into the workspace folder
+
+to install run below command
+
+export HF_HOME="/workspace"
+chmod +x runpod_install.sh
+./runpod_install.sh
+
+After install
+
+To start Clip Interrogator Graido Web UI execute below code
+
+export HF_HOME="/workspace"
+source venv/bin/activate
+python Clip_Interrogator.py
+
+then use proxy connect feature of the runpod from 7861 port
+
+in runpod interface Connect button Connect to HTTP Service [Port 7861]
+
+you can also gradio share such as
+
+export HF_HOME="/workspace"
+source venv/bin/activate
+python Clip_Interrogator.py --share
+
+above code will give you a public gradio link
+
+
+To start Blip 2 Captioners Graido Web UI execute below code
+
+export HF_HOME="/workspace"
+source venv/bin/activate
+python Blip2_Captioners.py
+
+then use proxy connect feature of the runpod from 7861 port
+
+in runpod interface Connect button Connect to HTTP Service [Port 7861]
+
+you can also gradio share such as
+
+export HF_HOME="/workspace"
+source venv/bin/activate
+python Blip2_Captioners.py --share
+
+above code will give you a public gradio link
